@@ -167,6 +167,13 @@
                                 {{ form_label(f.progress) }}
                                 {{ form_widget(f.progress, {'attr': {'class': 'form-control'}}) }}
                             </div>
+                            <div class="mb-3">
+                    {{ form_label(f.imageFile) }}
+                    {{ form_widget(f.imageFile, {'attr': {'class': 'form-control'}}) }}
+                    {% if f.vars.value.imageName is defined %}
+                        <img src="{{ asset('images/products/' ~ f.vars.value.imageName) }}" alt="Exercise Image" class="img-fluid mt-2" style="max-height: 200px;">
+                    {% endif %}
+                            </div>
 
                             <!-- Add other form fields... -->
 

@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ExercicesType extends AbstractType
 {
@@ -38,7 +40,12 @@ class ExercicesType extends AbstractType
                 'required' => true,
                 'attr' => ['class' => 'form-control'],
             ])
-            ->add('progress');
+            ->add('progress')
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Product Image',
+                'required' => false, // Set to true if the image is mandatory
+            ]);
+            
             
     }
 

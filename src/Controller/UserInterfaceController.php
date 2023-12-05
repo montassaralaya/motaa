@@ -15,4 +15,12 @@ class UserInterfaceController extends AbstractController
             'controller_name' => 'UserInterfaceController',
         ]);
     }
+
+    #[Route('/useractivities', name: 'app_user_activities')]
+    public function viewactivites(): Response
+    {
+        return $this->render('user_interface/act.html.twig', [
+            'controller_name' => 'UserInterfaceController',
+        ]);
+    }
 }

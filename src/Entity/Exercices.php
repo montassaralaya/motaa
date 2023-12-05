@@ -4,8 +4,13 @@ namespace App\Entity;
 
 use App\Repository\ExercicesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
+
 
 #[ORM\Entity(repositoryClass: ExercicesRepository::class)]
+#[Vich\Uploadable]
 class Exercices
 {
     #[ORM\Id]
@@ -36,6 +41,16 @@ class Exercices
 
     #[ORM\Column]
     private ?int $progress = null;
+
+    
+
+    #[Vich\UploadableField(mapping: "products_images", fileNameProperty: "imageName")]
+    private ?file $imageFile = null;
+
+    #[ORM\Column(length: 255, nullable: false)]
+    private ?string $imageName = null;
+
+    
 
     public function getId(): ?int
     {
@@ -134,6 +149,31 @@ class Exercices
     public function setProgress(int $progress): static
     {
         $this->progress = $progress;
+
+        return $this;
+    }
+
+    
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(File $imagename = null): self
+    {
+        $this->imageFile = $imagename;
 
         return $this;
     }

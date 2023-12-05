@@ -18,7 +18,7 @@ class AddactiviteType extends AbstractType
                 'choices' => [
                     'Cardio' => 'Cardio',
                     'weightlifting' => 'weightlifting',
-                    'crossfit' => 'crossfit',
+                    'Body Building' => 'Body Building',
                     
                 ],
                 'placeholder' => 'Select Type',

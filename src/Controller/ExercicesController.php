@@ -42,6 +42,13 @@ class ExercicesController extends AbstractController
         $form = $this->createForm(ExercicesType::class, $Exercices);
         $form->handleRequest($req);
         if ($form->isSubmitted()) {
+            $imageFile = $form->get('imageFile')->getData();
+            if ($imageFile) {
+                // Set the image file in the entity
+                $Exercices->setImageFile($imageFile);
+                
+            }
+    
             $em = $manager->getManager();
             $em->persist($Exercices);
             $em->flush();
@@ -49,6 +56,7 @@ class ExercicesController extends AbstractController
         }
         return $this->renderForm('exercices/form.html.twig', [
             'f' => $form
+            
         ]);
     }
 
@@ -58,12 +66,13 @@ class ExercicesController extends AbstractController
         $Exercices = $repo->findAll();
          // Fetch historical progress data
          $historicalData = $repo->findHistoricalProgressData();
+         $data = json_encode($historicalData);
 
          // Prepare data for the template
          
         return $this->render('exercices/show.html.twig', [
             'Exercices' => $Exercices,
-            'historicalData' => $historicalData,
+            'data' => $data,
         ]);
     }
     private $knpSnappyPdf;

@@ -21,6 +21,25 @@ https://templatemo.com/tm-548-training-studio
     <link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('user/assets/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('user/assets/css/templatemo-training-studio.css') }}">
+     <style>
+        /* Additional styles for the buttons */
+        .middle-buttons {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .big-button {
+            display: inline-block;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: orange; /* Blue color, you can change it */
+            color: #fff;
+            border-radius: 8px;
+            margin: 10px;
+        }
+    </style>
 
     </head>
     
@@ -51,8 +70,8 @@ https://templatemo.com/tm-548-training-studio
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#features">Activities</a></li>
+                            <li class="scroll-to-section"><a href="#top" >Home</a></li>
+                            <li class="scroll-to-section"><a href="{{ path('app_user_activities') }}" class="active">Activities</a></li>
                             <li class="scroll-to-section"><a href="#our-classes">Competitions</a></li>
                             <li class="scroll-to-section"><a href="#schedule">Forum</a></li>
                             <li class="scroll-to-section"><a href="#contact-us">Food Monitoring</a></li> 
@@ -83,10 +102,12 @@ https://templatemo.com/tm-548-training-studio
 <h2>Fitnatic</h2>
 <p><h6>Our site has several sections:</h6></p>
 <ul>
-    <li><h6><em>Activities</em>: Here, users can follow their exercise routines.</h6></li>
-    <li><h6><em>Competitions</em>: Participate in various competitions.</h6></li>
-    <li><h6><em>Forum</em>: Engage in discussions and forums.</h6></li>
-    <li><h6><em>Food Monitoring</em>: Track your dietary habits.</h6></li>
+         <div class="middle-buttons">
+        <a href="{{ path('app_user_activities') }}" class="big-button">Acitivity</a>
+        <a href="{{ path('app_task') }}" class="big-button">Task</a>
+        
+
+    </div>
 </ul>
 
 
@@ -94,6 +115,7 @@ https://templatemo.com/tm-548-training-studio
         </div>
     </div>
     <!-- ***** Main Banner Area End ***** -->
+
 
     <!-- ***** Features Item Start ***** -->
     
